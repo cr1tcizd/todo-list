@@ -65,7 +65,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background:url('src/img/unchecked.png');
+    background:url('../img/unchecked.png');
     background-size: cover;
     background-position: center;
     top: 12px;
@@ -81,7 +81,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background:url('src/img/checked.png');
+    background:url('../img/checked.png');
     background-size: cover;
     background-position: center;
     top: 12px;
