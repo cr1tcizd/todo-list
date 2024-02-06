@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px;
+    background: linear-gradient(172deg, rgba(172,159,238,1) 2%, rgba(22,102,147,1) 100%);}
+
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+    margin: 100px auto;
+    padding: 40px 30px;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+.h2_todo {
+    margin-bottom: 20px;
+    color: #41456e;
+}
+
+.input-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    background-color: rgba(0, 0, 0, 0.068);
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.input {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border:none;
+    outline: none;
+}
+
+.add_btn {
+    cursor: pointer;
+    border:none;
+    border-radius: 20px;
+    background-color: #8289c5;
+    padding: 20px 40px
+}
+
+.list_container li {
+    list-style: none;
+    user-select: none;
+    cursor:pointer;
+    font-size: 17px;
+    padding: 12px 8px 12px 40px;
+    position: relative;
+}
+
+.list_container li::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background:url('/src/img/unchecked.png');
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+.list_container .checked{
+    text-decoration:line-through;
+}
+
+.list_container .checked::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background:url('/src/img/checked.png');
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+.list_container ul li span {
+    position: absolute;
+    right: 0;
+    top: 12px;
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+}
+.list_container ul li span:hover {
+    background: rgb(194, 191, 201);
+}

@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do list</title>
-    <link rel="stylesheet" href="src/styles/">
+    <link rel="stylesheet" href="/src/styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="todo-app">
+            <h2 class="h2_todo">To-Do List</h2>
+            <div class="input-text">
+                <input class="input" type="text" id="input-box" placeholder="Заметка..">
+                <button class="add_btn" id="todo-btn" onclick="addTask()">Добавить</button>
+            </div>
+            <div class="list_container">
+                <ul id="list-container">
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <script src="src/scripts/script.js"></script>
 </body>
 </html>
