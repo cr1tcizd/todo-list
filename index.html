@@ -9,19 +9,26 @@
 </head>
 <body>
     <div class="container">
+
         <div class="todo-app">
+            <button onclick="closeTab()" id="close-tab-btn" class="close_btn">
+                &#10006;
+            </button>
             <h2 class="h2_todo">To-Do List</h2>
-            <div class="input-text">
-                <input class="input" type="text" id="input-box" placeholder="Заметка..">
-                <button class="add_btn" id="todo-btn" onclick="addTask()">Добавить</button>
+            <div class="todo_name_container">
+                <div class="todo_name_default todo_name_style">Введите название</div>
+                <div class="todo_name todo_name_style" contenteditable="true" aria-multiline="true" role="textbox" aria-label="privet"></div>
             </div>
-            <div class="list_container">
-                <ul id="list-container">
-                </ul>
+
+            <div>
+                <div class="todo_point_default todo_point_style">Новый пункт</div>
+                <div class="todo_point todo_point_style" contenteditable="true" aria-multiline="true"></div>
             </div>
+
         </div>
-        
+
     </div>
     <script src="src/scripts/script.js"></script>
+    <!-- <script src="src/scripts/todoPoint.js"></script> -->
 </body>
 </html>

@@ -1,46 +1,65 @@
-const inputBox = document.getElementById('input-box');
-const listContainer = document.getElementById('list-container');
+const point = document.querySelectorAll('.point');
+const todoElement = document.querySelector('.todo_point')
+const todoName = document.querySelector('.todo_name')
+const todoNameDefault = document.querySelector('.todo_name_default')
+const todoPointDefault = document.querySelector('.todo_point_default')
 
-function addTask() {
-    if (inputBox.value === "") {
-        alert('Вы должные что-нибудь написать');
-    } else {
-        let li = document.createElement('li');
-        li.innerHTML = inputBox.value;
-        listContainer.appendChild(li);
-        let span = document.createElement('span');
-        span.innerHTML = '\u00d7';
-        li.appendChild(span);
-        saveData();
+// создание нового пункта списка
+todoElement.addEventListener('keypress', function(event) {
+    let target = event.target
+    let text = target.textContent;
+    
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      let div = document.createElement('div')
+      div.classList.add('point')
+      div.setAttribute('contenteditable',"true")
+     
+      div.addEventListener('keydown', function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          todoElement.focus()
+        } else if (event.key === 'Backspace' && event.target.textContent === "") {
+          event.target.remove();
+        }
+      })
+
+      div.innerHTML = text;
+      target.parentElement.appendChild(div)
+      target.textContent = '';
     }
-    inputBox.value = '';
-}
+  })
 
-listContainer.addEventListener('click', function(e) {
-    if (e.target.tagName === 'LI') {
-        e.target.classList.toggle('checked')
-        saveData();
-    } else if (e.target.tagName === 'SPAN') {
-        e.target.parentElement.remove();
-        saveData();
-    }
-   
-}, false);
+// переключает фокус на imput
+todoName.addEventListener('keydown', function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    todoElement.focus();
+  }
+})
 
-function saveData() {
-    localStorage.setItem('data', listContainer.innerHTML);
-}
+// скрывает дефолтное название
+todoName.addEventListener('keyup', e => {
+  if (e.target.textContent !== "") {
+    todoNameDefault.style.display = 'none';
+  } else if (e.target.textContent === "") {
+    todoNameDefault.style.display = '';
+  }
+})
 
-function getData() {
-    listContainer.innerHTML = localStorage.getItem('data');
-}
+todoName.addEventListener('keyup', e => {
+  if (e.target.textContent !== "") {
+    todoNameDefault.style.display = 'none';
+  } else if (e.target.textContent === "") {
+    todoNameDefault.style.display = '';
+  }
+})
 
-getData();
-
-
-inputBox.addEventListener('keyup', function(event) {
-    event.preventDefault;
-    if (event.keyCode === 13 ) {
-        document.getElementById('todo-btn').click();
-    }
-});
+todoElement.addEventListener('keyup', e => {
+  console.log(e.target)
+  if (e.target.textContent !== "") {
+    todoPointDefault.style.display = 'none';
+  } else if (e.target.textContent === "") {
+    todoPointDefault.style.display = '';
+  }
+})

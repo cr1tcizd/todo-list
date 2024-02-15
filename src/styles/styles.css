@@ -18,87 +18,76 @@
     padding: 40px 30px;
     background-color: aliceblue;
     border-radius: 15px;
+    position: relative;
 }
 
 .h2_todo {
     margin-bottom: 20px;
     color: #41456e;
+    text-align: center;
 }
 
-.input-text {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 20px;
-    background-color: rgba(0, 0, 0, 0.068);
-    border-radius: 30px;
-    margin-bottom: 20px;
-}
-
-.input {
-    flex: 1;
-    padding: 10px;
-    background: none;
-    border:none;
-    outline: none;
-}
-
-.add_btn {
-    cursor: pointer;
-    border:none;
-    border-radius: 20px;
-    background-color: #8289c5;
-    padding: 20px 40px
-}
-
-.list_container li {
-    list-style: none;
-    user-select: none;
-    cursor:pointer;
-    font-size: 17px;
-    padding: 12px 8px 12px 40px;
+.todo_name_container {
     position: relative;
 }
 
-.list_container li::before {
-    content: '';
+.todo_name_default {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background:url('../img/unchecked.png');
-    background-size: cover;
-    background-position: center;
-    top: 12px;
-    left: 8px;
+    pointer-events: none;
 }
 
-.list_container .checked{
-    text-decoration:line-through;
+.todo_name {
+    cursor: text;
+    outline: none;
+    margin: 20px 0;
 }
 
-.list_container .checked::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background:url('../img/checked.png');
-    background-size: cover;
-    background-position: center;
-    top: 12px;
-    left: 8px;
+.todo_name_style {
+    width: 100%;
+    font-size: 1.6rem;
+    word-wrap: break-word;
 }
 
-.list_container ul li span {
+.todo_point_default {
     position: absolute;
-    right: 0;
-    top: 12px;
-    height: 20px;
-    width: 20px;
-    font-size: 20px;
-    text-align: center;
-    line-height: 20px;
-    border-radius: 50%;
 }
-.list_container ul li span:hover {
-    background: rgb(194, 191, 201);
+
+.todo_point {
+    border: 2px solid black
+}
+
+.point {
+    border: 1px solid black;
+}
+
+.todo_point_style {
+    word-wrap: break-word;
+}
+
+.close_btn {
+    width: 20px;
+    height: 20px;
+    top: 10px;
+    right: 15px;
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.close_btn:hover {
+    background: #bfbfd1;
+    opacity: 0.7;
+    border-radius: 7px;
+}
+
+.note {
+    width: 100%;
+    max-width: 200px;
+    padding: 20px;
+    margin: 0 0 20px 20px;
+    background-color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    list-style: none;
 }
