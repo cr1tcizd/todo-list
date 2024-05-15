@@ -1,0 +1,16 @@
+.input {
+  height: 35px;
+  padding: 5px 0;
+  border: none;
+  outline:none;
+  background: none;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: -0.2px;
+  line-height: 1;
+  font-weight: 700;
+  resize: none;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+
+}

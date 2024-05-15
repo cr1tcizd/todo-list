@@ -1,0 +1,101 @@
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 5px 0px;
+  color: #fff;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  transition: border 0.1s ease-in-out;
+}
+
+.line:hover {
+  .line__delete {
+    opacity: 1;
+  }
+  border-top: 1px solid #646262;
+  border-bottom: 1px solid #646262;
+
+}
+
+.line__delete {
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  min-width: 30px;
+  margin-left: auto;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+}
+
+.line__delete:hover {
+  background: #383737
+}
+
+.line__text {
+  outline: none;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  font-size: 12px;
+  padding: 6px 5px;
+  line-height: 1.5;
+  width: 100%;
+}
+
+.line__text:focus .line {
+    border-top: 1px solid #646262;
+    border-bottom: 1px solid #646262;
+}
+
+.line__text_completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.checkbox {
+  position: relative;
+  height: 30px;
+  min-width: 30px;
+}
+
+.checkpoint {
+  opacity: 0;
+}
+
+.unchecked {
+  /* transition: opacity 0.1s ease-in-out; */
+  opacity: 0.6;
+  background: url('./../../../assets/checkmark-disable.svg') center center no-repeat;
+  background-size: 20px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.unchecked:hover {
+  opacity: 1;
+}
+
+.checked {
+  background: url('./../../../assets/checkmark-active.svg') center center no-repeat;
+  background-size: 20px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.checked:hover {
+  opacity: 0.6;
+}

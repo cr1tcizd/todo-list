@@ -1,0 +1,23 @@
+.card__container {
+  position: relative;
+  flex: 1 1 200px;
+  min-height: 20px;
+  max-width: 250px;
+}
+
+.card {
+  /* max-width: 400px; */
+  /* width: 400px; */
+  border: 1px solid #999;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.card__name {
+  width: 190px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}

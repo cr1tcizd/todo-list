@@ -1,0 +1,30 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal__inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__content {
+  min-height: 25px;
+  width: 600px;
+  padding: 20px;
+  background: #252525;
+  border-radius: 10px;
+  border: 1px solid #757373;
+}

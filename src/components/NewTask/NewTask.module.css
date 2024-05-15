@@ -1,0 +1,23 @@
+.modal { 
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 50px;
+  width: 100vw;
+  margin-bottom: 50px;
+  /* height: 100vh; */
+}
+
+.modal__row {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  padding: 10px 20px;
+  border: 1px solid #999999;
+  border-radius: 10px;
+  box-shadow: 0px 2px 7px -1px #000;
+}
+
+.bottom__container {
+  display: flex;
+}
