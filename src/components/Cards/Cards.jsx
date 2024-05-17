@@ -9,15 +9,20 @@ const Cards = () => {
   
   return (
     <div className={cl.cards}>
-        {todos.map(todo => 
-          <Card 
-            key={todo.todoid}
-            todo={todo}
-            todos={todos}
-            setTodos={setTodos}
-          >
-          </Card>)}
-      
+      <div className="container">
+        <div className={cl.cards__row}>
+          {todos.map(todo => 
+            <Card 
+              key={todo.todoid}
+              todo={todo}
+              todos={todos}
+              setTodos={setTodos}
+            >
+            </Card>
+          )}
+        </div>
+        
+      </div>
     </div>
   );
 }

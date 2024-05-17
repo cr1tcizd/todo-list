@@ -12,3 +12,9 @@ html {
 body {
   background-color: #252525
 }
+
+.container {
+  max-width: 1500px;
+  padding: 0 30px;
+  margin: 0 auto;
+}

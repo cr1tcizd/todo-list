@@ -23,7 +23,7 @@ const Card = ({todo, todos, setTodos}) => {
         onClickDelete={() => deleteCard(todo)}
       />
 
-      <div className={cl.card}>
+      <div style={todo.background} className={cl.card}>
         {todo.name && 
           <h3 className={cl.card__name}>
             {todo.name}

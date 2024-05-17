@@ -58,12 +58,12 @@ export default function Modal({ todo, modalActive, setModalActive}) {
 
   return (
     <div className={rootClasses.join(' ')} onClick={() => handleClickOut()}>
-      <div className={cl.modal__content} onClick={(e) => e.stopPropagation()}>
+      <div style={todo.background} className={cl.modal__content} onClick={(e) => e.stopPropagation()}>
         <div className={cl.modal__inputs}>
           <Input 
             type="text"
             ref={noteInputHeading} 
-            // id='heading'
+            // id='heading'/
             name='title'
             placeholder='Заголовок'
             value={name}
