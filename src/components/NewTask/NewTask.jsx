@@ -26,19 +26,19 @@ const NewTask = ({ onChange, currentTodos }) => {
   const noteInputHeading = useRef('')
   // {id: Date.now(), title: 'delactus aut autem', completed: true}
  
-  const clickOutPaletteModal = (event) => {
-    if (paletteModalRef.current && !paletteModalRef.current.contains(event.target) && !paletteModalRef.current.contains(paletteRef)) {
-      console.log('clicked')
-      setDisplayPalette({display: 'none'})
-    }
-  }
+  // const clickOutPaletteModal = (event) => {
+  //   if (paletteModalRef.current && !paletteModalRef.current.contains(event.target) && !paletteModalRef.current.contains(paletteRef)) {
+  //     console.log('clicked')
+  //     setDisplayPalette({display: 'none'})
+  //   }
+  // }
 
-  useEffect(() => {
-    document.addEventListener('mousedown', clickOutPaletteModal)
-    return () => {
-      document.removeEventListener('mousedown', clickOutPaletteModal)
-    }
-  }, [])
+  // useEffect(() => {
+  //   document.addEventListener('mousedown', clickOutPaletteModal)
+  //   return () => {
+  //     document.removeEventListener('mousedown', clickOutPaletteModal)
+  //   }
+  // }, [])
 
   const handleNoteSubmit = (e, letter) => {
     if (e.key === 'Enter') {

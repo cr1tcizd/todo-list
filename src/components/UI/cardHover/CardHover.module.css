@@ -30,6 +30,6 @@
 }
 
 .card__trash__icon:hover {
-  background: #383737;
+  background: rgba(78, 84, 87, 0.15);
   cursor: pointer;
 }
