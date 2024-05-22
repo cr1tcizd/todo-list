@@ -91,6 +91,7 @@ export default function Modal({ todo, modalActive, setModalActive}) {
               note={note}
               notes={todo.notes}
               setNotes={setNotes}
+              contenteditable={true}
             >
             {note.title}
           </Line>

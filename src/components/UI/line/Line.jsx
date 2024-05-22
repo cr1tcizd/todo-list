@@ -1,9 +1,9 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import cl from './Line.module.css'
 
-const Line = ({ note, setNotes, notes}) => {
+const Line = ({ note, setNotes, notes, contenteditable}) => {
   const lineText = useRef(note);
-
+  const [currentContentEditTable, setCurrentContentEditTable] = useState(true)
   const deleteLine = () => {
     setNotes(notes.filter(n => n.id !== note.id))
   }
@@ -29,7 +29,7 @@ const Line = ({ note, setNotes, notes}) => {
         }}
         onKeyDown={e => {if (e.key === 'Enter') lineText.current.blur()}  }
         ref={lineText}
-        contentEditable={true} 
+        contentEditable={contenteditable} 
         suppressContentEditableWarning={true}
         className={note.completed ? `${cl.line__text}  ${cl.line__text_completed}` : cl.line__text}
       >

@@ -6,6 +6,7 @@ import Button from '../UI/button/Button';
 import Palette from '../../assets/palette.svg?react'
 import PaletteModal from '../UI/paletteModal/PaletteModal';
 import { useOutsideAlerter } from '../../hook/useOutsideAlerter';
+import nextId from 'react-id-generator';
 
 
 const NewTask = ({ onChange, currentTodos }) => {
@@ -15,30 +16,18 @@ const NewTask = ({ onChange, currentTodos }) => {
   const [notes, setNotes] = useState([]);
   const [todos, setTodos] = useState([]);
 
+  const order = nextId()
+
   const [display, setDisplay] = useState({display: 'none'})
   const [displayPalette, setDisplayPalette] = useState({display: 'none'})
 
-  const [background, setBackground] = useState({background: 'none'})
+  const [background, setBackground] = useState({background: '#252525'})
 
   // const paletteRef = useRef(null)
   // const paletteModalRef = useRef(null)
   const noteInput = useRef('')
   const noteInputHeading = useRef('')
   // {id: Date.now(), title: 'delactus aut autem', completed: true}
- 
-  // const clickOutPaletteModal = (event) => {
-  //   if (paletteModalRef.current && !paletteModalRef.current.contains(event.target) && !paletteModalRef.current.contains(paletteRef)) {
-  //     console.log('clicked')
-  //     setDisplayPalette({display: 'none'})
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   document.addEventListener('mousedown', clickOutPaletteModal)
-  //   return () => {
-  //     document.removeEventListener('mousedown', clickOutPaletteModal)
-  //   }
-  // }, [])
 
   const handleNoteSubmit = (e, letter) => {
     if (e.key === 'Enter') {
@@ -59,12 +48,12 @@ const NewTask = ({ onChange, currentTodos }) => {
       
   const addTodo = (notes) => {
     if (notes.length !== 0) {
-      setTodos([...todos, {todoid: Date.now(), name: name, notes: notes, background: background}])
-      onChange([...todos, {todoid: Date.now(), name: name, notes: notes, background: background}])
+      setTodos([...todos, {todoid: Date.now(), name: name, notes: notes, background: background, order: order}])
+      onChange([...todos, {todoid: Date.now(), name: name, notes: notes, background: background, order: order}])
       setNotes([])
     }
     setDisplay({display: 'none'})
-    setBackground({background: 'none'})
+    setBackground({background: '#252525'})
     setDisplayPalette({display: 'none'})
     setLetter('')
     setName('')
@@ -116,6 +105,7 @@ const NewTask = ({ onChange, currentTodos }) => {
               note={note}
               notes={notes}
               setNotes={setNotes}
+              contenteditable={true}
             >
             </Line>
           )}

@@ -3,9 +3,18 @@ import cl from './Card.module.css'
 import Line from '../line/Line';
 import Modal from '../modal/Modal';
 import CardHover from '../cardHover/CardHover';
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 
-
-const Card = ({todo, todos, setTodos}) => {
+const Card = ({todo, todos, setTodos, ...props}) => {
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({id: todo.todoid})
+  let style = {}
+  if (transform) {
+    style = {
+      transition,
+      transform: CSS.Transform.toString({...transform, scaleX: 1, scaleY: 1}),
+    };
+  }
   const [modalActive, setModalActive] = useState(false)
 
   const openModal = () => {
@@ -17,8 +26,15 @@ const Card = ({todo, todos, setTodos}) => {
   }
 
   return (
-    <div className={cl.card__container}>
+    <div 
+      // {...props} 
+      ref={setNodeRef} 
+      style={style}
+      {...attributes} 
+      className={cl.card__container}
+    >
       <CardHover 
+        {...listeners}
         onClick={() => {openModal()}}
         onClickDelete={() => deleteCard(todo)}
       />
@@ -31,7 +47,7 @@ const Card = ({todo, todos, setTodos}) => {
         }
 
         {todo.notes.map(note => 
-          <Line key={note.id} note={note} >
+          <Line contenteditable="false" key={note.id} note={note} >
             {note.title}
           </Line>
         )}
@@ -43,6 +59,7 @@ const Card = ({todo, todos, setTodos}) => {
         todo={todo}
       />
     </div>
+    
 
   );
 }
