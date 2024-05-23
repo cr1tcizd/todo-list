@@ -18,7 +18,12 @@ const Line = ({ note, setNotes, notes, contenteditable}) => {
   }
 
   return (
-    <div id={note.id} className={cl.line}>
+    <div 
+      onFocus={(e) => (e.target.parentElement.classList.add(cl.line__focus))} 
+      onBlur={(e) => e.target.parentElement.classList.remove(cl.line__focus)} 
+      id={note.id} 
+      className={cl.line}
+    >
       <div className={cl.checkbox}>
         <input className={cl.checkpoint} type="checkbox" name="checkbox" checked={status} onChange={() => handleChange()} />
         <span className={note.completed ? cl.checked : cl.unchecked} onClick={() => handleChange()}></span>
@@ -31,7 +36,7 @@ const Line = ({ note, setNotes, notes, contenteditable}) => {
         ref={lineText}
         contentEditable={contenteditable} 
         suppressContentEditableWarning={true}
-        className={note.completed ? `${cl.line__text}  ${cl.line__text_completed}` : cl.line__text}
+        className={note.completed ? `${cl.line__text} ${cl.line__text_completed}` : cl.line__text}
       >
         {note.title}
       </div>

@@ -13,9 +13,14 @@
   .line__delete {
     opacity: 1;
   }
-  border-top: 1px solid #646262;
-  border-bottom: 1px solid #646262;
+  /* border-top: 1px solid #646262; */
+  /* border-bottom: 1px solid #646262; */
+}
 
+.line__focus {
+  transition: none;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
 }
 
 .line__delete {
@@ -35,7 +40,6 @@
 }
 
 .line__delete:hover {
-  /* background: #646262; */
   background: rgba(78, 84, 87, 0.15);
 }
 
@@ -49,9 +53,8 @@
   width: 100%;
 }
 
-.line__text:focus .line {
-    border-top: 1px solid #646262;
-    border-bottom: 1px solid #646262;
+.line__text:focus + .line__delete {
+  opacity: 1;
 }
 
 .line__text_completed {
@@ -100,3 +103,4 @@
 .checked:hover {
   opacity: 0.6;
 }
+
