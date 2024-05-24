@@ -66,14 +66,12 @@ const NewTask = ({ onChange, currentTodos, ref }) => {
     } else {
       setDisplayPalette({display: 'none'})
     }
-    // setDisplayPalette({display: 'flex'})
   }
   useEffect(() => {
     setTodos(currentTodos)
   }, [currentTodos])
 
   useEffect(() => {
-    console.log("vot ",paletteTool.current)
     const handleClickOut = (e) => {
       if (!paletteToolModal.current.contains(e.target) && !paletteTool.current.contains(e.target)) {
         console.log('yes')
@@ -124,10 +122,10 @@ const NewTask = ({ onChange, currentTodos, ref }) => {
             </Line>
           )}
 
-          <PaletteModal paletteTool={paletteToolModal} style={displayPalette} background={background} setBackground={setBackground} />
          
           <div style={display} className={cl.bottom__container}>
             <div ref={paletteTool} className={cl.toolbar}>
+              <PaletteModal paletteTool={paletteToolModal} style={displayPalette} background={background} setBackground={setBackground} />
               <Palette className={cl.palette} onClick={palleteClick} />
             </div>
             <Button type='button' style={{marginLeft: 'auto'}} onClick={() => addTodo(notes)}>Закрыть</Button>

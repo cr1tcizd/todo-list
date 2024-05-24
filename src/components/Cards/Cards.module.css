@@ -6,8 +6,14 @@
   display: flex;
   flex-wrap: wrap;
   align-items: start;
-  row-gap: 20px;
-  column-gap: 20px;
+  row-gap: 10px;
+  column-gap: 10px;
   max-width: 1460px;
   margin: 0 auto;
+}
+
+@media (max-width: 520px) {
+  .cards__row {
+    display: block;
+  }
 }

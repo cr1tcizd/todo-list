@@ -58,7 +58,7 @@ export default function Modal({ todo, modalActive, setModalActive}) {
 
   return (
     <div className={rootClasses.join(' ')} onClick={() => handleClickOut()}>
-      <div style={todo.background} className={cl.modal__content} onClick={(e) => e.stopPropagation()}>
+      <div style={todo.background.background === '#252525' ? {background: `${todo.background.background}`} : {background: `${todo.background.background}`, border: `1px solid ${todo.background.background}`}} className={cl.modal__content} onClick={(e) => e.stopPropagation()}>
         <div className={cl.modal__inputs}>
           <Input 
             type="text"

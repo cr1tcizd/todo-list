@@ -3,11 +3,10 @@
   flex: 1 1 200px;
   min-height: 20px;
   max-width: 250px;
+  /* min-width: 50px; */
 }
 
 .card {
-  /* max-width: 400px; */
-  /* width: 400px; */
   border: 1px solid #999;
   border-radius: 10px;
   padding: 15px;
@@ -20,4 +19,12 @@
   font-weight: 700;
   overflow-wrap: break-word;
   word-break: break-all;
+}
+
+@media (max-width: 520px) {
+  .card__container {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
 }

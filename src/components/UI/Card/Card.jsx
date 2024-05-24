@@ -24,7 +24,7 @@ const Card = ({todo, todos, setTodos, ...props}) => {
   const deleteCard = (todo) => {
     setTodos(todos.filter(t => t.todoid !== todo.todoid))
   }
-
+  console.log(todo.background.background)
   return (
     <div 
       // {...props} 
@@ -38,8 +38,7 @@ const Card = ({todo, todos, setTodos, ...props}) => {
         onClick={() => {openModal()}}
         onClickDelete={() => deleteCard(todo)}
       />
-
-      <div style={todo.background} className={cl.card}>
+      <div style={todo.background.background === '#252525' ? {background: `${todo.background.background}`} : {background: `${todo.background.background}`, border: `1px solid ${todo.background.background}`}} className={cl.card}>
         {todo.name && 
           <h3 className={cl.card__name}>
             {todo.name}
