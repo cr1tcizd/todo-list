@@ -13,6 +13,7 @@
 
 .modal__row {
   position: relative;
+  width: 600px;
 }
 
 .modal__inputs {
@@ -30,7 +31,7 @@
   min-height: 25px;
   max-height: 90vh;
   overflow:auto;
-  width: 600px;
+  max-width: 600px;
   padding: 20px 20px 60px 20px;
   background: #252525;
   border-radius: 10px;
