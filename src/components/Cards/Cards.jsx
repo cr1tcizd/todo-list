@@ -29,13 +29,11 @@ const Cards = () => {
   const getTodoPos = id => todos.findIndex(todo => todo.todoid === id)
 
   const handleDragEnd = event => {
-    console.log(event)
     const {active, over} = event
     if(active.id === over.id) return;
     setTodos(todos => {
       const originalPos = getTodoPos(active.id)
       const newPos = getTodoPos(over.id)
-      console.log(todos)
       return arrayMove(todos, originalPos, newPos)
     })
   }

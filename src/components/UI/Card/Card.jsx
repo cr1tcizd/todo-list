@@ -24,10 +24,8 @@ const Card = ({todo, todos, setTodos, ...props}) => {
   const deleteCard = (todo) => {
     setTodos(todos.filter(t => t.todoid !== todo.todoid))
   }
-  console.log(todo.background.background)
   return (
     <div 
-      // {...props} 
       ref={setNodeRef} 
       style={style}
       {...attributes} 
@@ -46,7 +44,7 @@ const Card = ({todo, todos, setTodos, ...props}) => {
         }
 
         {todo.notes.map(note => 
-          <Line contenteditable="false" key={note.id} note={note} >
+          <Line contenteditable="false" key={note.id} note={note} tabIndex='-1'>
             {note.title}
           </Line>
         )}

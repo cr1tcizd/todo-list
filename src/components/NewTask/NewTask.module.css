@@ -26,4 +26,13 @@
 
 .palette {
   cursor: pointer;
+  stroke: #fff;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.palette:hover {
+  background-color: rgba(78, 84, 87, 0.25);
 }

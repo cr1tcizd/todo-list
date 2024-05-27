@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import cl from './Line.module.css'
 
-const Line = ({ note, setNotes, notes, contenteditable}) => {
+const Line = ({ note, setNotes, notes, contenteditable, tabIndex}) => {
   const lineText = useRef(note);
   const [currentContentEditTable, setCurrentContentEditTable] = useState(true)
   const deleteLine = () => {
@@ -23,10 +23,11 @@ const Line = ({ note, setNotes, notes, contenteditable}) => {
       onBlur={(e) => e.target.parentElement.classList.remove(cl.line__focus)} 
       id={note.id} 
       className={cl.line}
+      tabIndex={tabIndex}
     >
-      <div className={cl.checkbox}>
-        <input className={cl.checkpoint} type="checkbox" name="checkbox" checked={status} onChange={() => handleChange()} />
-        <span className={note.completed ? cl.checked : cl.unchecked} onClick={() => handleChange()}></span>
+      <div className={cl.checkbox} >
+        <input tabIndex={tabIndex} className={cl.checkpoint} type="checkbox" name="checkbox" checked={status} onChange={() => handleChange()} />
+        <span  className={note.completed ? cl.checked : cl.unchecked} onClick={() => handleChange()}></span>
       </div>
       <div 
         onInput={e => {
@@ -40,7 +41,7 @@ const Line = ({ note, setNotes, notes, contenteditable}) => {
       >
         {note.title}
       </div>
-      <button type='button' className={cl.line__delete} onClick={() => deleteLine()}>&#215;</button>
+      <button tabIndex={tabIndex} type='button' className={cl.line__delete} onClick={() => deleteLine()}>&#215;</button>
     </div>
   );
 }

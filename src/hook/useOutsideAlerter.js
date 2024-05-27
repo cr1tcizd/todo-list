@@ -1,11 +1,9 @@
 import { useEffect, useRef } from "react";
 
-export const useOutsideAlerter = (onOutsideClick) => {
-  const ref = useRef();
-
+export const useOutsideAlerter = (onOutsideClick, ref, toolRef) => {
   useEffect(() => {
-    function handleClick(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
+    function handleClick(e) {
+      if (!ref.current.contains(e.target) && !toolRef.current.contains(e.target)) {
         onOutsideClick();
       }
     }

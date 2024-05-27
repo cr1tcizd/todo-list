@@ -3,6 +3,8 @@ import cl from './Modal.module.css'
 import Line from '../line/Line'
 import { TodosContext } from '../../../context'
 import Input from '../input/Input'
+import Toolbar from '../../Toolbar/Toolbar'
+import Button from '../button/Button'
 
 export default function Modal({ todo, modalActive, setModalActive}) {
   const rootClasses = [cl.modal]
@@ -10,6 +12,7 @@ export default function Modal({ todo, modalActive, setModalActive}) {
   const [notes, setNotes] = useState(todo.notes)
   const [letter, setLetter] = useState('')
   const [name, setName] = useState(todo.name)
+  const [background, setBackground] = useState(todo.background)
   
   const noteInput = useRef('')
   const noteInputHeading = useRef('')
@@ -25,11 +28,10 @@ export default function Modal({ todo, modalActive, setModalActive}) {
     
     setTodos(todos.map(t => {
       if (t.todoid === todo.todoid) {
-        return {...t, name: name}
+        return {...t, name: name, background: background}
       }
       return t
     }))
-
     if (todo.notes.length === 0) {
       setTodos(todos.filter(t => t.notes.length !== 0))
     }
@@ -58,46 +60,50 @@ export default function Modal({ todo, modalActive, setModalActive}) {
 
   return (
     <div className={rootClasses.join(' ')} onClick={() => handleClickOut()}>
-      <div style={todo.background.background === '#252525' ? {background: `${todo.background.background}`} : {background: `${todo.background.background}`, border: `1px solid ${todo.background.background}`}} className={cl.modal__content} onClick={(e) => e.stopPropagation()}>
-        <div className={cl.modal__inputs}>
-          <Input 
-            type="text"
-            ref={noteInputHeading} 
-            // id='heading'/
-            name='title'
-            placeholder='Заголовок'
-            value={name}
-            onKeyDown={e => noteFocus(e)}
-            onChange={e => setName(e.target.value)}
-          />
-          <Input 
-            ref={noteInput}
-            type="text" 
-            name='name'
-            // id='note'
-            value={letter} 
-            onKeyDown={e => handleNoteSubmit(e, letter)}
-            onChange={e => setLetter(e.target.value)} 
-            placeholder='Заметка...'
-            style={{fontSize: '15px'}}
-            // onFocus={() => setDisplay({display: 'flex'})}
-          />
-        </div>
-       
+      <div className={cl.modal__row} onClick={(e) => e.stopPropagation()}>
+        <div style={background.background === '#252525' ? {background: `${background.background}`} : {background: `${background.background}`, border: `1px solid transparent`}} className={cl.modal__content}>
+          <div className={cl.modal__inputs}>
+            <Input 
+              type="text"
+              ref={noteInputHeading} 
+              name='title'
+              placeholder='Заголовок'
+              value={name}
+              onKeyDown={e => noteFocus(e)}
+              onChange={e => setName(e.target.value)}
+            />
+            <Input 
+              ref={noteInput}
+              type="text" 
+              name='name'
+              value={letter} 
+              onKeyDown={e => handleNoteSubmit(e, letter)}
+              onChange={e => setLetter(e.target.value)} 
+              placeholder='Заметка...'
+              style={{fontSize: '15px'}}
+            />
+          </div>
+        
 
-        {notes.map(note => 
-          <Line 
-              key={note.id} 
-              note={note}
-              notes={todo.notes}
-              setNotes={setNotes}
-              contenteditable={true}
-            >
-            {note.title}
-          </Line>
-          
-        )}
+          {notes.map(note => 
+            <Line 
+                key={note.id} 
+                note={note}
+                notes={todo.notes}
+                setNotes={setNotes}
+                contenteditable={true}
+              >
+              {note.title}
+            </Line>
+            
+          )}
+        </div>
+        <div className={cl.tool__container} style={background.background === '#252525' ? {borderLeft: '1px solid #757373', borderRight: "1px solid #757373", borderBottom: "1px solid #757373"} : {border: '1px solid transparent'}}>
+          <Toolbar background={background} setBackground={setBackground} />
+          <Button type='button' style={{marginLeft: 'auto'}} onClick={handleClickOut}>Закрыть</Button>
+        </div>
       </div>
+      
     </div>
   )
 }

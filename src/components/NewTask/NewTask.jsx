@@ -3,9 +3,11 @@ import cl from './NewTask.module.css'
 import Line from '../UI/line/Line';
 import Input from '../UI/input/Input';
 import Button from '../UI/button/Button';
-import Palette from '../../assets/palette.svg?react'
+import Palette from '../../assets/palette1.svg?react'
 import PaletteModal from '../UI/paletteModal/PaletteModal';
 import nextId from 'react-id-generator';
+import { useOutsideAlerter } from '../../hook/useOutsideAlerter';
+import Toolbar from '../Toolbar/Toolbar';
 
 
 const NewTask = ({ onChange, currentTodos, ref }) => {
@@ -16,18 +18,14 @@ const NewTask = ({ onChange, currentTodos, ref }) => {
   const [todos, setTodos] = useState([]);
 
   const order = nextId()
-
+  
   const [display, setDisplay] = useState({display: 'none'})
-  const [displayPalette, setDisplayPalette] = useState({display: 'none'})
-
+  
   const [background, setBackground] = useState({background: '#252525'})
 
-  const paletteTool = useRef('')
-  const paletteToolModal = useRef('')
   const noteInput = useRef('')
   const noteInputHeading = useRef('')
-  // {id: Date.now(), title: 'delactus aut autem', completed: true}
-
+  
   const handleNoteSubmit = (e, letter) => {
     if (e.key === 'Enter') {
       e.preventDefault()
@@ -60,30 +58,10 @@ const NewTask = ({ onChange, currentTodos, ref }) => {
     noteInputHeading.current.style.height = '35px';
   }
 
-  const palleteClick = () => {
-    if (displayPalette.display === "none") {
-      setDisplayPalette({display: 'flex'})
-    } else {
-      setDisplayPalette({display: 'none'})
-    }
-  }
   useEffect(() => {
     setTodos(currentTodos)
   }, [currentTodos])
 
-  useEffect(() => {
-    const handleClickOut = (e) => {
-      if (!paletteToolModal.current.contains(e.target) && !paletteTool.current.contains(e.target)) {
-        console.log('yes')
-        setDisplayPalette({display: 'none'})
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOut)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOut)
-    }
-  }, [paletteTool])
 
   return (
     <div className={cl.modal}>
@@ -124,10 +102,10 @@ const NewTask = ({ onChange, currentTodos, ref }) => {
 
          
           <div style={display} className={cl.bottom__container}>
-            <div ref={paletteTool} className={cl.toolbar}>
-              <PaletteModal paletteTool={paletteToolModal} style={displayPalette} background={background} setBackground={setBackground} />
-              <Palette className={cl.palette} onClick={palleteClick} />
-            </div>
+            <Toolbar 
+              background={background} 
+              setBackground={setBackground} 
+            />
             <Button type='button' style={{marginLeft: 'auto'}} onClick={() => addTodo(notes)}>Закрыть</Button>
           </div>
         </div>
