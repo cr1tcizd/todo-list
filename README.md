@@ -1,4 +1,4 @@
-### To-do list
+# To-do list
 Тудушка написанная на React со сборщиком Vite. [Github Pages](https://cr1tcizd.github.io/todo-list/)  
 
 Дизайн приближен к сервису для создания заметок Google Keep.  
