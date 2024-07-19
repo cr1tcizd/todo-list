@@ -1,8 +1,8 @@
 ### To-do list
-Тудушка написанная на React со сборщиком Vite.
-``` https://cr1tcizd.github.io/todo-list/ ```
-Дизайн приближен к сервису для создания заметок Google Keep.
-Используемые технологии: SCSS, React.
+Тудушка написанная на React со сборщиком Vite.  
+[Github Pages](https://cr1tcizd.github.io/todo-list/)  
+Дизайн приближен к сервису для создания заметок Google Keep.  
+Используемые технологии: SCSS, React.  
 ## Возможности:
 - Создавать заметки;
 - Редактировать заметки;
